@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emre Terzi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        header {
+            margin-bottom: 80px;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .bio {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .projects {
+            margin-bottom: 80px;
+        }
+        
+        .section-label {
+            font-size: 0.875rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 32px;
+        }
+        
+        .project {
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .project:last-child {
+            border-bottom: none;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .project-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+        
+        .project-stack {
+            font-size: 0.875rem;
+            color: #999;
+        }
+        
+        .project-description {
+            color: #666;
+            margin-bottom: 16px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 20px;
+            font-size: 0.875rem;
+        }
+        
+        .project-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            padding-bottom: 2px;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .project-links a:hover {
+            border-bottom-color: #1a1a1a;
+        }
+        
+        .contact {
+            display: flex;
+            gap: 24px;
+            font-size: 0.875rem;
+        }
+        
+        .contact a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact a:hover {
+            color: #1a1a1a;
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            header {
+                margin-bottom: 60px;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+        }
+        
+        /* Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Emre Terzi</h1>
+            <p class="bio">Building tools with AI. Currently exploring RAG, mobile apps, and desktop software.</p>
+        </header>
+        
+        <section class="projects">
+            <div class="section-label">Projects</div>
+            
+            <div class="project">
+                <div class="project-header">
+                    <h2 class="project-title">TBK Rental Law Assistant</h2>
+                    <span class="project-stack">Python, FastAPI, RAG</span>
+                </div>
+                <p class="project-description">
+                    AI chatbot for Turkish rental law questions using retrieval-augmented generation.
+                </p>
+                <div class="project-links">
+                    <a href="https://rag-ai-assistant-rental-law.streamlit.app/" target="_blank">View demo →</a>
+                    <a href="https://github.com/yourusername/tbk-law" target="_blank">Source →</a>
+                </div>
+            </div>
+            
+            <div class="project">
+                <div class="project-header">
+                    <h2 class="project-title">CMK Checklist</h2>
+                    <span class="project-stack">React Native, TypeScript</span>
+                </div>
+                <p class="project-description">
+                    Mobile app for criminal defense lawyers to track case procedures. Under App Store review.
+                </p>
+                <div class="project-links">
+                    <a href="https://avocatt.github.io/CMK-Checklist/" target="_blank">Project page →</a>
+                    <a href="#" target="_blank">App Store (soon) →</a>
+                </div>
+            </div>
+            
+            <div class="project">
+                <div class="project-header">
+                    <h2 class="project-title">Jewelry Inventory</h2>
+                    <span class="project-stack">React, Firebase, TypeScript</span>
+                </div>
+                <p class="project-description">
+                    Production inventory system for jewelry stores. Actively used at my dad's shop.
+                </p>
+                <div class="project-links">
+                    <a href="#" target="_blank">Demo coming →</a>
+                    <a href="https://github.com/yourusername/jewelry" target="_blank">Source →</a>
+                </div>
+            </div>
+            
+            <div class="project">
+                <div class="project-header">
+                    <h2 class="project-title">KuyumPro</h2>
+                    <span class="project-stack">Electron, React, SQLite</span>
+                </div>
+                <p class="project-description">
+                    Commercial desktop inventory management with offline-first architecture and licensing.
+                </p>
+                <div class="project-links">
+                    <a href="https://your-vercel.vercel.app" target="_blank">Learn more →</a>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="contact">
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/emreterzi" target="_blank">LinkedIn</a>
+                <a href="mailto:your@email.com">Email</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
