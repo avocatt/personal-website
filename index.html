@@ -36,12 +36,35 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --bg-primary: #fafaf9;
+            --bg-secondary: #ffffff;
+            --text-primary: #18181b;
+            --text-secondary: #71717a;
+            --text-tertiary: #a1a1aa;
+            --accent: #6366f1;
+            --border: #e4e4e7;
+            --hover-bg: #f4f4f5;
+        }
+
+        .dark {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #18181b;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #818cf8;
+            --border: #27272a;
+            --hover-bg: #27272a;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #fafaf9;
-            color: #18181b;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .container {
@@ -59,24 +82,27 @@
             font-weight: 600;
             margin-bottom: 8px;
             letter-spacing: -0.025em;
-            color: #09090b;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
         }
         
         .title {
-            color: #71717a;
+            color: var(--text-secondary);
             font-size: 0.875rem;
             font-weight: 500;
             letter-spacing: -0.01em;
             margin-bottom: 16px;
             line-height: 1.4;
+            transition: color 0.3s ease;
         }
         
         .bio {
-            color: #71717a;
+            color: var(--text-secondary);
             font-size: 1rem;
             font-weight: 400;
             letter-spacing: -0.015em;
             line-height: 1.6;
+            transition: color 0.3s ease;
         }
         
         .social-links {
@@ -87,7 +113,7 @@
         }
         
         .social-links a {
-            color: #71717a;
+            color: var(--text-secondary);
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 8px;
@@ -100,12 +126,12 @@
         }
         
         .social-links a:hover {
-            color: #6366f1;
+            color: var(--accent);
             transform: translateY(-2px);
         }
         
         .social-links a:focus {
-            outline: 2px solid #6366f1;
+            outline: 2px solid var(--accent);
             outline-offset: 3px;
             border-radius: 6px;
         }
@@ -124,18 +150,19 @@
         
         .section-label {
             font-size: 0.8125rem;
-            color: #a1a1aa;
+            color: var(--text-tertiary);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-weight: 500;
             margin-bottom: 48px;
+            transition: color 0.3s ease;
         }
         
         .project {
             margin-bottom: 56px;
             padding-bottom: 56px;
-            border-bottom: 1px solid #e4e4e7;
-            transition: transform 0.2s ease-out;
+            border-bottom: 1px solid var(--border);
+            transition: transform 0.2s ease-out, border-color 0.3s ease;
             cursor: pointer;
         }
         
@@ -160,21 +187,24 @@
             font-size: 1.125rem;
             font-weight: 600;
             letter-spacing: -0.025em;
-            color: #09090b;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
         }
         
         .project-stack {
             font-size: 0.8125rem;
-            color: #a1a1aa;
+            color: var(--text-tertiary);
             font-weight: 500;
             letter-spacing: 0.025em;
+            transition: color 0.3s ease;
         }
         
         .project-description {
-            color: #71717a;
+            color: var(--text-secondary);
             margin-bottom: 20px;
             font-weight: 400;
             letter-spacing: -0.01em;
+            transition: color 0.3s ease;
         }
         
         .project-links {
@@ -184,7 +214,7 @@
         }
         
         .project-links a {
-            color: #18181b;
+            color: var(--text-primary);
             text-decoration: none;
             padding-bottom: 3px;
             border-bottom: 1px solid transparent;
@@ -198,13 +228,13 @@
         }
         
         .project-links a:hover {
-            border-bottom-color: #6366f1;
-            color: #6366f1;
+            border-bottom-color: var(--accent);
+            color: var(--accent);
             transform: translateX(2px);
         }
         
         .project-links a:focus {
-            outline: 2px solid #6366f1;
+            outline: 2px solid var(--accent);
             outline-offset: 3px;
             border-radius: 2px;
         }
@@ -322,9 +352,101 @@
         .social-links a:nth-child(1) { animation-delay: 0.8s; }
         .social-links a:nth-child(2) { animation-delay: 0.9s; }
         .social-links a:nth-child(3) { animation-delay: 1.0s; }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent);
+        }
+
+        .theme-toggle:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .theme-toggle:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .theme-toggle:hover svg {
+            color: var(--accent);
+            transform: translate(-50%, -50%) rotate(15deg);
+        }
+
+        .theme-icon {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .theme-icon.hidden {
+            opacity: 0;
+            transform: translate(-50%, -50%) rotate(90deg) scale(0.5);
+        }
+
+        @media (max-width: 640px) {
+            .theme-toggle {
+                top: auto;
+                bottom: 24px;
+                right: 20px;
+                width: 48px;
+                height: 48px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            }
+            
+            .theme-toggle svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon moon-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
     <div class="container">
         <header>
             <h1>Emre Terzi</h1>
@@ -476,6 +598,68 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                }
+            });
+        });
+
+        // Theme Toggle Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            
+            // Check for saved theme preference or default to light mode
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            
+            // Apply initial theme
+            document.documentElement.classList.toggle('dark', currentTheme === 'dark');
+            updateIcons(currentTheme === 'dark');
+            
+            // Toggle theme function
+            function toggleTheme() {
+                const isDark = document.documentElement.classList.contains('dark');
+                const newTheme = isDark ? 'light' : 'dark';
+                
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', newTheme);
+                updateIcons(!isDark);
+                
+                // Add a subtle click animation
+                themeToggle.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    themeToggle.style.transform = '';
+                }, 150);
+            }
+            
+            // Update icon visibility
+            function updateIcons(isDark) {
+                if (isDark) {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                }
+            }
+            
+            // Event listeners
+            themeToggle.addEventListener('click', toggleTheme);
+            
+            // Keyboard accessibility
+            themeToggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleTheme();
+                }
+            });
+            
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    document.documentElement.classList.toggle('dark', e.matches);
+                    updateIcons(e.matches);
                 }
             });
         });
