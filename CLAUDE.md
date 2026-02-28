@@ -50,6 +50,7 @@ Simply upload the HTML file to any web server.
 - CMK Checklist (React Native, TypeScript) 
 - Jewelry Inventory (React, Firebase, TypeScript)
 - KuyumPro (Electron, React, SQLite)
+- Emral POS (React, Firebase, TypeScript)
 
 ## Notes for Future Development
 
